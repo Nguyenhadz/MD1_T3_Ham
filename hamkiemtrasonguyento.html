@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Nhập số bạn muốn kiểm tra:");
+    let b = true;
+    checkSNT()
+    function checkSNT(){
+        if (a<2){
+            b = false;
+        } else {
+            for ( let i=2; i < (a-1) ; i++) {
+                if (a % i === 0) {
+                    b = false;
+                    break;
+                }
+            }
+        }
+    }
+    if (b === true){
+        alert(a + ' Là số nguyên tố')
+    } else {
+        alert(a + ' Không là số nguyên tố')
+    }
+
+</script>
+
+</body>
+</html>
