@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Nhập mảng của bạn:</h1>
+<label><input type="number" id="inputNumber"></label>
+<input type="button" value="Input" onclick="inputElement()">
+<input type="button" value="Start" onclick="checkMin()">
+<p id="array"></p>
+<p><span id="export"></span></p>
+
+<script>
+    let arr = [];
+    function inputElement(){
+        let element = document.getElementById('inputNumber').value
+
+        arr.push(+element)
+        // document.getElementById('inputNumber').innerHTML = "";
+    }
+    function checkMin(){
+        if ( arr.length === 0){
+            document.getElementById('export').innerHTML = 'Mảng của bạn là mảng rỗng';
+        } else {
+            document.getElementById('array').innerHTML= 'Mảng của bạn là:' + '[' +arr+ ']';
+            let min = arr[0];
+            for (let i= 1; i< arr.length; i++ ){
+                if (min > arr[i]){
+                    min = arr[i]
+                }
+            }
+            document.getElementById('export').innerHTML = 'Giá trị nhỏ nhất là: ' + min;
+
+        }
+    }
+</script>
+</body>
+</html>
