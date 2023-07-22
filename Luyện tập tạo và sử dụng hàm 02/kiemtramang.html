@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1><b>Kiểm tra mảng</b></h1>
+<input type="text" id="inputArray" placeholder="0">
+<input type="button" onclick="input()" id="inputElement" value="Input">
+<input type="button" onclick="check()" id="checkElement" value="Check">
+<p id="export"></p>
+<script>
+    let arr = [];
+    let x = 0;
+  function input(){
+      let element = document.getElementById('inputArray').value;
+      arr.push(element);
+      document.getElementById('inputArray').value = '';
+  }
+  console.log(arr)
+    let flag = false;
+    function check(){
+        let a = prompt("Input random:")
+
+
+        for ( let i=0; i<arr.length; i++){
+            if (a === arr[i]){
+                flag = true;
+                x++;
+            }
+        }
+        if (flag){
+            document.getElementById('export').innerHTML = x;
+        } else {
+            document.getElementById('export').innerHTML = '-1';
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

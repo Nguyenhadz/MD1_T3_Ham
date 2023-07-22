@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    reverseInteger()
+    function reverseInteger(){
+        let a = prompt('Nhập mảng số nguyên:');
+        let arr = a.split("");
+        let newArr = [];
+
+        for ( let i=0; i< arr.length; i++){
+            newArr.unshift(arr[i]);
+        }
+        let b = newArr.join("");
+        document.write(`Chuỗi đảo ngược là: ${b}`);
+    }
+</script>
+
+</body>
+</html>
