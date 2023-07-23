@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button {
+            border: 0;
+            background-color: #50af50;
+            width: 60px;
+            height: 21px;
+            border-radius: 3px;
+            color: white;
+        }
+        table{
+            border: 1px;
+        }
+        tr:nth-child(even) {
+            background-color: aqua;
+        }
+        td {
+            width: 200px;
+            height: 21px;
+        }
+    </style>
+</head>
+<body>
+<h1><b>Add New Product</b></h1>
+<label><input type="text" id="add" placeholder="New product"/></label>
+<input type="button" onclick="newProduct()" value="Add" style="background-color: #50af50; border: 0;width: 40px; height: 21px; border-radius: 3px; color: white">
+<h3><b>Display All Product</b></h3><br>
+<p id="displayProduct"></p>
+<script>
+    let a = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple Iphone 6S", "Xiaomi Mi 5 Plus", "Apple Iphone 8 Plus", "Fujistu F-04E", "Oppo A71"];
+    makeTable()
+    function makeTable(){
+        let table = '<table>' + '<tr>' + '<td colspan="2" style="text-align: left"><b>Product Name</b></td><td colspan="1" style="text-align: right"><b>'+ a.length + ' Product</b></td></tr>'
+        for ( let i=0; i< a.length; i++){
+            table += '<tr><td>' + a[i] + '</td>'+ `<td><input type="button" onClick="deleteProduct(${i})" value="Delete" style="background-color: #50af50; border: 0;width: 60px; height: 21px; border-radius: 3px; color: white"></td>` + `<td><input type="button" onClick="editProduct(${i})" value="Edit" style="background-color: #50af50; border: 0;width: 60px; height: 21px; border-radius: 3px; color: white"></td></tr>`
+        }
+        document.getElementById('displayProduct').innerHTML = table;
+    }
+    function newProduct() {
+        let b = document.getElementById('add').value;
+        a.push(b);
+        makeTable();
+        document.getElementById('add').value = "";
+    }
+    function deleteProduct(i){
+        a.splice(i,1);
+        makeTable();
+    }
+    function editProduct(i){
+        let newProduct = prompt('Edit Product:');
+        a.splice(i,1,newProduct);
+        makeTable();
+    }
+</script>
+</body>
+</html>
